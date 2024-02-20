@@ -1,3 +1,5 @@
+[EN](work_EN.md) | [中文](work_ZH.md)
+
 # TreeThisFolder Project Structure
 
 TreeThisFolder is a utility to enhance the Windows context menu, providing options to generate and display the directory structure in various formats directly from the right-click menu. This document outlines the structure and components of the TreeThisFolder project.
