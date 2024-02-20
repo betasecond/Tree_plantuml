@@ -37,7 +37,12 @@ func ModifyRegistry(path string, action RegAction, key string, value string) err
 	if err != nil {
 		return err
 	}
-	defer k.Close()
+	defer func(k registry.Key) {
+		err := k.Close()
+		if err != nil {
+
+		}
+	}(k)
 
 	switch action {
 	case AddAction:
