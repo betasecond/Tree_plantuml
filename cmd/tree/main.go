@@ -22,12 +22,18 @@ const (
 )
 
 func main() {
-	var format, path string
+	var format string
 	var option int
 	flag.StringVar(&format, "format", "txt", "输出格式：txt, md, puml")
-	flag.StringVar(&path, "path", ".", "目录路径")
 	flag.IntVar(&option, "option", 0, "选择输出选项：0=无，1=复制到剪贴板，2=保存到文件，3=两者都执行")
 	flag.Parse()
+
+	// 获取非标签参数
+	args := flag.Args()
+	path := "."
+	if len(args) > 0 {
+		path = args[0]
+	}
 
 	node, err := tree.GenerateFolderStructure(path)
 	if err != nil {
