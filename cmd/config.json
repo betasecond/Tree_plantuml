@@ -1,0 +1,21 @@
+{
+  "sourcePath": "path/to/your/application/executable",
+  "features": {
+    "contextMenu": true,
+    "clipboardSupport": true,
+    "outputFormats": ["txt", "md", "puml"]
+  },
+  "outputDirectory": "path/to/output/directory",
+  "registerKeys": [
+    {
+      "name": "CopyStructure",
+      "command": "copy command or path to executable with parameters",
+      "formats": ["txt", "md"]
+    },
+    {
+      "name": "CopyAndSaveStructure",
+      "command": "copy and save command or path to executable with parameters",
+      "formats": ["txt", "puml"]
+    }
+  ]
+}
