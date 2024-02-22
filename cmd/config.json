@@ -1,21 +1,41 @@
 {
-  "sourcePath": "path/to/your/application/executable",
+  "sourcePath": "cmd/tree/tree.exe",
   "features": {
     "contextMenu": true,
     "clipboardSupport": true,
     "outputFormats": ["txt", "md", "puml"]
   },
-  "outputDirectory": "path/to/output/directory",
+  "outputDirectory": "%APPDATA%/TreeThisFolder",
   "registerKeys": [
     {
       "name": "CopyStructure",
-      "command": "copy command or path to executable with parameters",
-      "formats": ["txt", "md"]
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -format txt \"%1\"",
+      "formats": ["txt"]
+    },
+    {
+      "name": "CopyStructureMD",
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -format md \"%1\"",
+      "formats": ["md"]
+    },
+    {
+      "name": "CopyStructurePUML",
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -format puml \"%1\"",
+      "formats": ["puml"]
     },
     {
       "name": "CopyAndSaveStructure",
-      "command": "copy and save command or path to executable with parameters",
-      "formats": ["txt", "puml"]
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -option save -format txt \"%1\"",
+      "formats": ["txt"]
+    },
+    {
+      "name": "CopyAndSaveStructureMD",
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -option save -format md \"%1\"",
+      "formats": ["md"]
+    },
+    {
+      "name": "CopyAndSaveStructurePUML",
+      "command": "\"%APPDATA%/TreeThisFolder/tree.exe\" -option save -format puml \"%1\"",
+      "formats": ["puml"]
     }
   ]
 }
