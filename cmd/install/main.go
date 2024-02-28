@@ -5,6 +5,7 @@ import (
 	"Tree_plantuml/pkg/utils"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -55,13 +56,23 @@ func copyFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
-	defer sourceFile.Close()
+	defer func(sourceFile *os.File) {
+		err := sourceFile.Close()
+		if err != nil {
+			log.Printf("Failed to close source file: %v", err)
+		}
+	}(sourceFile)
 
 	destFile, err := os.Create(dst)
 	if err != nil {
 		return err
 	}
-	defer destFile.Close()
+	defer func(destFile *os.File) {
+		err := destFile.Close()
+		if err != nil {
+
+		}
+	}(destFile)
 
 	_, err = io.Copy(destFile, sourceFile)
 	return err
