@@ -70,7 +70,7 @@ func copyFile(src, dst string) error {
 	defer func(destFile *os.File) {
 		err := destFile.Close()
 		if err != nil {
-
+			log.Printf("Failed to close source file: %v", err)
 		}
 	}(destFile)
 
